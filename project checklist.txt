@@ -1,0 +1,7 @@
+15.09.2025
+settings.py(жазылды)
+models.py(жазылды)
+serializers.py(жазылды)
+views.py(жазылды)
+urls.py(жазылды)
+миграции кылдым createsuper user бар
