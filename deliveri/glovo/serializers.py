@@ -19,6 +19,19 @@ class StoreSerializer(serializers.ModelSerializer):
     model = Store
     fields = "__all__"
 
+    
+class StoreListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Store
+    fields = "store_name, category"
+    
+
+class StoreDetailSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Store
+    fields = "store_name, category, address, description, owner"
+    
+
 
 class ContactSerializer(serializers.ModelSerializer):
   class Meta:
@@ -26,10 +39,11 @@ class ContactSerializer(serializers.ModelSerializer):
     fields = "__all__"
 
 
-class ProductCategorySerializer(serializers.ModelSerializer):
+class ContactListSerializer(serializers.ModelSerializer):
   class Meta:
-    model = ProductCategory
-    fields = "__all__"
+    model = Contact
+    fields = "title, phone_number,store, social_network"
+
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -37,10 +51,12 @@ class ProductSerializer(serializers.ModelSerializer):
     model = Product
     fields = "__all__"
 
-class ReviewSerializer(serializers.ModelSerializer):
+
+class ProductListSerializer(serializers.ModelSerializer):
   class Meta:
-    model = Review
-    fields = "__all__"
+    model = Product
+    fields = "product_name, price, category, store, image"
+
 
 class CartSerializer(serializers.ModelSerializer):
   class Meta:
@@ -51,3 +67,53 @@ class CartItemSerializer(serializers.ModelSerializer):
   class Meta:
     model = CartItem
     fields = "__all__"
+
+
+class ComboSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Combo
+    fields = "__all__"
+
+class ComboListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Combo
+    fields = "combo_name, description"
+
+class ComboDetailSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Combo
+    fields = "combo_name, description, product_name, image"
+
+
+class OrderSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Order
+    fields = "__all__"
+
+
+class CourierSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Courier
+    fields = "__all__"
+
+
+class CourierRatingSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = CourierRating
+    fields = "__all__"
+
+
+class StoreReviewSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = StoreReview
+    fields = "__all__"
+
+class StoreReviewListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = StoreReview
+    fields = "client, stars"
+
+class StoreDetailReviewSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = StoreReview
+    fields = "client, stars, text, created_date"
